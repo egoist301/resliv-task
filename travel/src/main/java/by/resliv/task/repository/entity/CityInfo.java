@@ -11,6 +11,8 @@ public class CityInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
+    @Column(name = "info")
+    private String name;
     @Column(name = "create_date", updatable = false)
     private LocalDate createDate;
     @Column(name = "update_date")
@@ -54,6 +56,14 @@ public class CityInfo {
         this.city = city;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @PrePersist
     private void onCreate() {
         createDate = LocalDate.now();
@@ -71,12 +81,14 @@ public class CityInfo {
         if (o == null || getClass() != o.getClass()) return false;
         CityInfo cityInfo = (CityInfo) o;
         return Objects.equals(id, cityInfo.id) &&
+                Objects.equals(name, cityInfo.name) &&
                 Objects.equals(createDate, cityInfo.createDate) &&
-                Objects.equals(updateDate, cityInfo.updateDate);
+                Objects.equals(updateDate, cityInfo.updateDate) &&
+                Objects.equals(city, cityInfo.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createDate, updateDate);
+        return Objects.hash(id, name, createDate, updateDate, city);
     }
 }
