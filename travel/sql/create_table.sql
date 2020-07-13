@@ -1,20 +1,9 @@
 CREATE TABLE city
 (
 	id SERIAL,
-	name VARCHAR(60) NOT NULL,
+	name VARCHAR(60) UNIQUE NOT NULL,
+	description VARCHAR(255) NOT NULL,
 	create_date TIMESTAMP NOT NULL,
 	update_date TIMESTAMP NOT NULL,
 	CONSTRAINT PK_city PRIMARY KEY (id)
-);
-
-CREATE TABLE city_info
-(
-	id SERIAL,
-	info VARCHAR(255) NOT NULL,
-	city_id INT NOT NULL,
-	create_date TIMESTAMP NOT NULL,
-	update_date TIMESTAMP NOT NULL,
-	CONSTRAINT PK_info PRIMARY KEY (id),
-	CONSTRAINT FK_city_info FOREIGN KEY (city_id)
-	 REFERENCES city (id) ON DELETE CASCADE
 );

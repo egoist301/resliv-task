@@ -27,8 +27,8 @@ public class City implements Serializable {
     private LocalDate createDate;
     @Column(name = "update_date")
     private LocalDate updateDate;
-    @OneToMany(mappedBy = "city")
-    private Set<CityInfo> cityInfos;
+    @Column(name = "description")
+    private String description;
 
     public City() {
     }
@@ -65,12 +65,12 @@ public class City implements Serializable {
         this.updateDate = updateDate;
     }
 
-    public Set<CityInfo> getCityInfos() {
-        return cityInfos;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCityInfos(Set<CityInfo> cityInfos) {
-        this.cityInfos = cityInfos;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @PrePersist
@@ -92,11 +92,12 @@ public class City implements Serializable {
         return Objects.equals(id, city.id) &&
                Objects.equals(name, city.name) &&
                Objects.equals(createDate, city.createDate) &&
-               Objects.equals(updateDate, city.updateDate);
+               Objects.equals(updateDate, city.updateDate) &&
+               Objects.equals(description, city.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, createDate, updateDate);
+        return Objects.hash(id, name, createDate, updateDate, description);
     }
 }

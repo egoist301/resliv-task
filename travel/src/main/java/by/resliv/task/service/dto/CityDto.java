@@ -2,9 +2,7 @@ package by.resliv.task.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 public class CityDto {
     @JsonProperty("id")
@@ -12,9 +10,9 @@ public class CityDto {
     @NotBlank(message = "Name can't be null or empty")
     @JsonProperty("name")
     private String name;
-    @Valid
-    @JsonProperty("city_info")
-    private List<CityInfoDto> cityInfoDtos;
+    @NotBlank(message = "Description can't be null or empty")
+    @JsonProperty("description")
+    private String description;
 
     public Long getId() {
         return id;
@@ -32,16 +30,16 @@ public class CityDto {
         this.name = name;
     }
 
-    public List<CityInfoDto> getCityInfoDtos() {
-        return cityInfoDtos;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCityInfoDtos(List<CityInfoDto> cityInfoDtos) {
-        this.cityInfoDtos = cityInfoDtos;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return name + ": " + cityInfoDtos;
+        return name + ": " + description;
     }
 }

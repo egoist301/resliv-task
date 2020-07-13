@@ -1,5 +1,6 @@
 package by.resliv.task.service;
 
+import by.resliv.task.exception.EntityIsAlreadyExistException;
 import by.resliv.task.exception.EntityIsNotExistException;
 import by.resliv.task.repository.CityRepository;
 import by.resliv.task.repository.entity.City;
@@ -37,7 +38,11 @@ public class CityService {
     }
 
     public CityDto create(CityDto cityDto) {
-        return CityDtoConverter.convertToDto(cityRepository.save(CityDtoConverter.convertToEntity(cityDto)));
+        if (cityRepository.existsByName(cityDto.getName())) {
+            throw new EntityIsAlreadyExistException("city with name " + cityDto.getName() + " is already exist.");
+        } else {
+            return CityDtoConverter.convertToDto(cityRepository.save(CityDtoConverter.convertToEntity(cityDto)));
+        }
     }
 
     public CityDto update(CityDto cityDto, Long id) {
