@@ -1,7 +1,9 @@
 package by.resliv.task.repository;
 
 import by.resliv.task.repository.entity.CityInfo;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CityInfoRepository extends CrudRepository<CityInfo, Long> {
+@Repository
+public interface CityInfoRepository extends JpaRepository<CityInfo, Long> {
 }

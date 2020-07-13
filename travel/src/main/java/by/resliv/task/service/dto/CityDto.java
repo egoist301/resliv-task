@@ -39,4 +39,9 @@ public class CityDto {
     public void setCityInfoDtos(List<CityInfoDto> cityInfoDtos) {
         this.cityInfoDtos = cityInfoDtos;
     }
+
+    @Override
+    public String toString() {
+        return name + ": " + cityInfoDtos;
+    }
 }

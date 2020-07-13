@@ -1,6 +1,14 @@
 package by.resliv.task.repository.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -82,9 +90,9 @@ public class City implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         City city = (City) o;
         return Objects.equals(id, city.id) &&
-                Objects.equals(name, city.name) &&
-                Objects.equals(createDate, city.createDate) &&
-                Objects.equals(updateDate, city.updateDate);
+               Objects.equals(name, city.name) &&
+               Objects.equals(createDate, city.createDate) &&
+               Objects.equals(updateDate, city.updateDate);
     }
 
     @Override

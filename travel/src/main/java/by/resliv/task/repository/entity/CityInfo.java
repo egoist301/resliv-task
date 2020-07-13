@@ -1,6 +1,16 @@
 package by.resliv.task.repository.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -12,7 +22,7 @@ public class CityInfo {
     @Column(name = "id", updatable = false)
     private Long id;
     @Column(name = "info")
-    private String name;
+    private String info;
     @Column(name = "create_date", updatable = false)
     private LocalDate createDate;
     @Column(name = "update_date")
@@ -56,12 +66,12 @@ public class CityInfo {
         this.city = city;
     }
 
-    public String getName() {
-        return name;
+    public String getInfo() {
+        return info;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     @PrePersist
@@ -81,14 +91,14 @@ public class CityInfo {
         if (o == null || getClass() != o.getClass()) return false;
         CityInfo cityInfo = (CityInfo) o;
         return Objects.equals(id, cityInfo.id) &&
-                Objects.equals(name, cityInfo.name) &&
-                Objects.equals(createDate, cityInfo.createDate) &&
-                Objects.equals(updateDate, cityInfo.updateDate) &&
-                Objects.equals(city, cityInfo.city);
+               Objects.equals(info, cityInfo.info) &&
+               Objects.equals(createDate, cityInfo.createDate) &&
+               Objects.equals(updateDate, cityInfo.updateDate) &&
+               Objects.equals(city, cityInfo.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, createDate, updateDate, city);
+        return Objects.hash(id, info, createDate, updateDate, city);
     }
 }
