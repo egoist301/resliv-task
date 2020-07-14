@@ -42,11 +42,6 @@ public class CityController {
         return new ResponseEntity<>(cityService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<CityDto> getByName(@PathVariable String name) {
-        return new ResponseEntity<>(cityService.getByName(name), HttpStatus.OK);
-    }
-
     @PostMapping
     public ResponseEntity<CityDto> add(@RequestBody @Valid CityDto cityDto) {
         CityDto cityDtoResponse = cityService.create(cityDto);

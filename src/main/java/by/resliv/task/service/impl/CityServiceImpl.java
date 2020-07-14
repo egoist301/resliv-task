@@ -35,7 +35,7 @@ public class CityServiceImpl implements CityService {
     }
 
     public CityDto getByName(String name) {
-        Optional<City> city = cityRepository.findByName(name);
+        Optional<City> city = cityRepository.findByNameStartingWithIgnoreCase(name);
         if (city.isPresent()) {
             return CityDtoConverter.convertToDto(city.get());
         } else {
@@ -53,6 +53,9 @@ public class CityServiceImpl implements CityService {
 
     public CityDto update(CityDto cityDto, Long id) {
         if (cityRepository.existsById(id)) {
+            if (cityRepository.existsByNameIsAndIdNot(cityDto.getName(), id)) {
+                throw new EntityIsAlreadyExistException("city with name " + cityDto.getName() + " is already exist.");
+            }
             cityDto.setId(id);
             City city = CityDtoConverter.convertToEntity(cityDto);
             return CityDtoConverter.convertToDto(cityRepository.save(city));

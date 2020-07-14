@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "b6a63246-3913-43ea-a4c7-a5a2e9c046fa",
+		"name": "resliv",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "positive case",
+			"item": [
+				{
+					"name": "get specific city succesful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2dae0e1e-b4a9-4d7a-83d2-cb96231d1ba2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all cities succesful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad331a20-917a-456e-9032-b8437c778fdf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city succesful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f872328-405d-434c-b284-d55bc371439e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Azgard\",\r\n    \"description\": \"Azgard is fallen.\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update city succesful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6304537e-7fbd-41fc-93e2-736dcbf12a64",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Гомель\",\r\n    \"description\": \"информация о Гомеле\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete specific city succesful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34367b5c-655f-405f-aaec-6b132ca550d7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "negative case",
+			"item": [
+				{
+					"name": "get specific city with incorrect positive id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d8120a17-6a88-4feb-8f4d-cff5f41ec613",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/6253",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"6253"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific city with negative id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfb7e9f0-ad86-4bf3-b2b1-98833071fd6b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific city with id = 0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55ab3bc2-7524-41c9-b495-b76c45108e1e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all with incorrect query",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a5bf6ec-3688-4c60-9c1a-35e6d5dfe023",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/wffawfa",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"wffawfa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city with small name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ccfa1df-82b9-42e3-801c-6518428ed75e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"A\",\r\n    \"description\": \"Azgard is fallen.\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city with small description",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59e88889-6fb4-4d1c-ab34-9449dd2f9947",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Azgard\",\r\n    \"description\": \"A\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city with long name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6353f36-5a60-42a2-a530-c4b6f1bb3242",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Azgard\",\r\n    \"description\": \"Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.Azgard is fallen.\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city with long description",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "873fd878-7ba7-444c-beb2-91a2b4373b8a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"AzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgardAzgard\",\r\n    \"description\": \"Azgard is fallen.\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city with ununique name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "074635d3-a84a-4c4c-afb2-c534045cbef5",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Минск\",\r\n    \"description\": \"Azgard is fallen.\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update city with ununique name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc4dd2a-c203-464a-b7f8-4f80d98a4734",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Минск\",\r\n    \"description\": \"информация о Гомеле\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/cities/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete specific city with incorrect id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1959a61d-d371-41c3-875a-63f12583a769",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/cities/515",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"515"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
