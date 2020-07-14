@@ -1,7 +1,6 @@
 package by.resliv.task.util;
 
-import by.resliv.task.exception.EntityIsNotExistException;
-import by.resliv.task.exception.IncorrectPathVariableException;
+import by.resliv.task.exception.*;
 
 public final class NumberValidator {
     private NumberValidator() {

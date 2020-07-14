@@ -1,9 +1,9 @@
-package by.resliv.task.service;
+package by.resliv.task.service.impl;
 
-import by.resliv.task.exception.EntityIsAlreadyExistException;
-import by.resliv.task.exception.EntityIsNotExistException;
+import by.resliv.task.exception.*;
 import by.resliv.task.repository.CityRepository;
 import by.resliv.task.repository.entity.City;
+import by.resliv.task.service.CityService;
 import by.resliv.task.service.converter.CityDtoConverter;
 import by.resliv.task.service.dto.CityDto;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class CityService {
+public class CityServiceImpl implements CityService {
     private static final String CITY_IS_NOT_EXIST = "city is not exist";
     private CityRepository cityRepository;
 
-    public CityService(CityRepository cityRepository) {
+    public CityServiceImpl(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
 

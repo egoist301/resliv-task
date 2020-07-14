@@ -1,7 +1,6 @@
-package by.resliv.task;
+package by.resliv.task.bot;
 
 import by.resliv.task.service.CityService;
-import by.resliv.task.service.dto.CityDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -39,8 +38,7 @@ public class TravelBot extends TelegramLongPollingBot {
             inMessage = update.getMessage().getText();
             chatId = update.getMessage().getChatId().toString();
         }
-        CityDto cityDto = cityService.getByName(inMessage);
-        sendMsg(chatId, cityDto.toString());
+        sendMsg(chatId, cityService.getByName(inMessage).toString());
     }
 
     @Override
@@ -53,11 +51,11 @@ public class TravelBot extends TelegramLongPollingBot {
         return botToken;
     }
 
-    private void sendMsg(final String chatId, final String s) {
+    private void sendMsg(String chatId, String message) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(chatId);
-        sendMessage.setText(s);
+        sendMessage.setText(message);
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {

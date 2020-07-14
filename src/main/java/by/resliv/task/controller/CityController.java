@@ -21,7 +21,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/city")
+@RequestMapping("/cities")
 public class CityController {
     private CityService cityService;
 
@@ -34,6 +34,11 @@ public class CityController {
     public ResponseEntity<CityDto> get(@PathVariable Long id) {
         NumberValidator.validateId(id);
         return new ResponseEntity<>(cityService.get(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/{name}")
+    public ResponseEntity<CityDto> getByName(@PathVariable String name) {
+        return new ResponseEntity<>(cityService.getByName(name), HttpStatus.OK);
     }
 
     @PostMapping
