@@ -1,5 +1,9 @@
-package by.resliv.task.exception;
+package by.resliv.task.exception.handler;
 
+import by.resliv.task.exception.EntityIsAlreadyExistException;
+import by.resliv.task.exception.EntityIsNotExistException;
+import by.resliv.task.exception.IncorrectPathVariableException;
+import by.resliv.task.exception.dto.ErrorDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,18 +28,22 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<Object> handlePathException(RuntimeException e, WebRequest request) {
+    public ResponseEntity<Object> handlePathException(RuntimeException e) {
         return createResponse(new RuntimeException("incorrect path URI", e), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler({EntityIsNotExistException.class, NoResultException.class})
-    public ResponseEntity<Object> handleNotExistException(RuntimeException e, WebRequest request) {
+    public ResponseEntity<Object> handleNotExistException(RuntimeException e) {
         return createResponse(e, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IncorrectPathVariableException.class)
-    public ResponseEntity<Object> handlePathVariableException(RuntimeException e, WebRequest request) {
+    public ResponseEntity<Object> handlePathVariableException(RuntimeException e) {
         return createResponse(e, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(EntityIsAlreadyExistException.class)
+    public ResponseEntity<Object> handleAlreadyExistException(RuntimeException e) {
+        return createResponse(e, HttpStatus.CONFLICT);
     }
 
     private ResponseEntity<Object> createResponse(Exception ex, HttpStatus status) {

@@ -1,4 +1,4 @@
-package by.resliv.task.exception;
+package by.resliv.task.exception.dto;
 
 import org.springframework.http.HttpStatus;
 

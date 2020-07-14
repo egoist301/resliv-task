@@ -8,7 +8,9 @@ import by.resliv.task.service.converter.CityDtoConverter;
 import by.resliv.task.service.dto.CityDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CityServiceImpl implements CityService {
@@ -26,6 +28,10 @@ public class CityServiceImpl implements CityService {
         } else {
             throw new EntityIsNotExistException(CITY_IS_NOT_EXIST);
         }
+    }
+
+    public List<CityDto> getAll() {
+        return cityRepository.findAll().stream().map(CityDtoConverter::convertToDto).collect(Collectors.toList());
     }
 
     public CityDto getByName(String name) {

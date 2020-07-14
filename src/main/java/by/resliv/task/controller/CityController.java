@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cities")
@@ -34,6 +35,11 @@ public class CityController {
     public ResponseEntity<CityDto> get(@PathVariable Long id) {
         NumberValidator.validateId(id);
         return new ResponseEntity<>(cityService.get(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CityDto>> getAll() {
+        return new ResponseEntity<>(cityService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{name}")
