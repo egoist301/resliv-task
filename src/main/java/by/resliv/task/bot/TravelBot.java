@@ -1,5 +1,7 @@
 package by.resliv.task.bot;
 
+import by.resliv.task.bot.command.Command;
+import by.resliv.task.bot.command.factory.CommandFactory;
 import by.resliv.task.exception.EntityIsNotExistException;
 import by.resliv.task.service.CityService;
 import by.resliv.task.service.dto.CityDto;
@@ -18,34 +20,29 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 
+import static by.resliv.task.bot.BotConstants.AVAILABLE_CITIES;
+
 @Component
 public class TravelBot extends TelegramLongPollingBot {
-    private static final String AVAILABLE_CITIES = "Доступные города";
-    private static final String START = "/start";
     @Value("${telegram.token}")
     private String botToken;
     @Value("${telegram.username}")
     private String botUsername;
-    private CityService cityService;
+    private CommandFactory commandFactory;
     private TelegramBotsApi telegramBotsApi;
 
-    public TravelBot(CityService cityService, TelegramBotsApi telegramBotsApi) {
-        this.cityService = cityService;
+    public TravelBot(CommandFactory commandFactory, TelegramBotsApi telegramBotsApi) {
+        this.commandFactory = commandFactory;
         this.telegramBotsApi = telegramBotsApi;
     }
 
     @Override
     public void onUpdateReceived(Update update) {
-        String inMessage;
-        String chatId;
-        if (update.hasEditedMessage()) {
-            inMessage = update.getEditedMessage().getText();
-            chatId = update.getEditedMessage().getChatId().toString();
-        } else {
-            inMessage = update.getMessage().getText();
-            chatId = update.getMessage().getChatId().toString();
-        }
-        chooseCommand(chatId, inMessage);
+        String inMessage = getInMessage(update);
+        String chatId = getChatId(update);
+        Command command = commandFactory.findCommand(inMessage);
+        String text = command.execute();
+        sendMsg(chatId, text);
     }
 
     @Override
@@ -58,22 +55,16 @@ public class TravelBot extends TelegramLongPollingBot {
         return botToken;
     }
 
-    private void chooseCommand(String chatId, String inMessage) {
-        switch (inMessage) {
-            case START:
-                sendMsg(chatId, "Добро пожаловать. Кнопки управления представлены ниже.");
-                break;
-            case AVAILABLE_CITIES:
-                cityService.getAll().stream().map(CityDto::getName).forEachOrdered(s -> sendMsg(chatId, s));
-                break;
-            default:
-                try {
-                    sendMsg(chatId, cityService.getByName(inMessage).toString());
-                } catch (EntityIsNotExistException e) {
-                    sendMsg(chatId, "Город не найден");
-                }
-                break;
-        }
+    private String getInMessage(Update update) {
+        return update.hasEditedMessage() ?
+               update.getEditedMessage().getText() :
+               update.getMessage().getText();
+    }
+
+    private String getChatId(Update update) {
+        return update.hasEditedMessage() ?
+               update.getEditedMessage().getChatId().toString() :
+               update.getMessage().getChatId().toString();
     }
 
     private void sendMsg(String chatId, String message) {
