@@ -5,7 +5,7 @@ Technologies used :
 
     * JDK 1.8
     * Spring Boot 2.2.4
-    * Postgre
+    * H2
     * Maven
     * IntelliJ IDEA
 
@@ -27,12 +27,11 @@ Technologies used :
 Для запуска необходимо:
 
     1) Скачать
-    2) Выполнить скрипты из папки sql в такой очерёдности: create_db, create_table, init_table 
-    3) Запустить приложение
-    4) Найти в телеграмме бота с именем ReslivTravelTask_bot.
+    2) Запустить приложение
+    3) Найти в телеграмме бота с именем ReslivTravelTask_bot.
     Воспользоваться им.
     Токен бота: 1128261253:AAHUKd0MhmYmYI6ivX1fzqD-UN50zNg3ivc
-    5) Опционально: для проверки REST использовать resliv.postman_collection.json
+    4) Опционально: для проверки REST использовать resliv.postman_collection.json
     открыть его в POSTMAN и прогнать запросы.
 
 REST (without jwt token) spec:
