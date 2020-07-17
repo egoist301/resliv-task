@@ -1,0 +1,10 @@
+INSERT INTO city(name, description, create_date, update_date) VALUES('Минск', 'информация о Минске', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES ('Витебск', 'информация о Витебске', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Гродно', 'информация о Гродно', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Гомель', 'информация о Гомеле', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Брест', 'информация о Бресте', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Могилев', 'информация о Могилёве', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Бобруйск', 'информация о Бобруйске', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Москва', 'информация о Москве', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Пинск', 'информация о Пинске', current_date, current_date);
+INSERT INTO city(name, description, create_date, update_date) VALUES('Полоцк', 'информация о Полоцке', current_date, current_date);

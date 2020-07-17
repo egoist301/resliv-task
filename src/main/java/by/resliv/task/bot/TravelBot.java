@@ -2,9 +2,6 @@ package by.resliv.task.bot;
 
 import by.resliv.task.bot.command.Command;
 import by.resliv.task.bot.command.factory.CommandFactory;
-import by.resliv.task.exception.EntityIsNotExistException;
-import by.resliv.task.service.CityService;
-import by.resliv.task.service.dto.CityDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
